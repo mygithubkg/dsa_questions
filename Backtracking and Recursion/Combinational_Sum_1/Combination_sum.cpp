@@ -51,3 +51,33 @@ int main() {
     return 0;
 }
 
+class Solution {
+public:
+    set<vector<int>> s;
+    void c_s(vector<int> &A, int B, int i , vector<int> &combination, vector<vector<int>> &ans){
+        if (B ==0){
+            if (s.find(combination) == s.end()){
+                ans.push_back(combination);
+                s.insert(combination);
+            }
+            return;
+        }
+        
+        
+        for (int j = i; j < A.size(); ++j) {
+            if (j > i && A[j] == A[j - 1]) continue; // Skip duplicates
+            if (A[j] > B) break; // Early termination since array is sorted
+            combination.push_back(A[j]);
+            c_s(A, B - A[j], j + 1, combination, ans);
+            combination.pop_back();
+        }
+    }
+    vector<vector<int>> combinationSum2(vector<int>& A, int B) {
+        vector<vector<int>> ans;
+        vector<int> combination;
+        sort(A.begin(),A.end());
+        c_s(A,B, 0, combination,ans);
+        return ans;
+    }
+};
+
