@@ -41,6 +41,7 @@ class Solution {
         
         return temp;
     }
+    
     Node* kthLast(Node* temp, int k){
         k-=1;
         while(temp->next != NULL && k>0){
