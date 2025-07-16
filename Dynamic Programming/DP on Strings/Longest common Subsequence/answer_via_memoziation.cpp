@@ -5,9 +5,7 @@
 
 using namespace std;
 
-// remove dp to get recusrive solution but for Recursive solution time and space complexity will be O(2^(n+m))
-// The memoziation solution will have time and space complexity of O(n*m) where n is the size of s1 and m is the size of s2
-// Though space complexity will be - O(n*m) + O(n+m) for the recursion stack space which can be reduced to O(n*m) by using tabulation   
+
 class Solution {
   public:
   
